@@ -19,6 +19,6 @@ interface iBook
     public function getYear(); // Получаем год выпуска книги
     public function getPage(); // Кол-во страниц книги
     public function getCondition(); // Качество книги
-    public function reducetCondition(); // уменьшить качество книги
+    public function reduceCondition(); // уменьшить качество книги
 
 }

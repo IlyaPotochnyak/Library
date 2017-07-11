@@ -13,17 +13,48 @@ class Library
     private $address;
 
     /**
+     * Паттерн Синглтон
+     * @var $_instance
+     */
+    protected static $_instance;
+
+    /**
      * Library constructor.
      * @param array $hall
      * @param array $people
      * @param $address
      */
-    public function __construct(array $hall, array $people, $address)
+    private function __construct(array $hall, array $people, $address)
     {
         $this->hall = $hall;
         $this->people = $people;
         $this->address = $address;
     }
+
+    public static  function getInstance(array $hall = [], array $people = [], $address = '')
+    {
+        if (self::$_instance === null) {
+            self::$_instance = new self($hall, $people, $address);
+        }
+        return self::$_instance;
+    }
+
+    /**
+     * Используется при обратной сериализации объекта
+     */
+    private function __wakeup()
+    {
+        // TODO: Implement __wakeup() method.
+    }
+
+    /**
+     * Чтобы объект нельзя было склонировать
+     */
+    private function __clone()
+    {
+        // TODO: Implement __clone() method.
+    }
+
 
     /**
      * @return array

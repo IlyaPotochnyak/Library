@@ -1,0 +1,6 @@
+{
+    "name": "potoc/library",
+    "require": {
+        "raveren/kint": "^1.1"
+    }
+}

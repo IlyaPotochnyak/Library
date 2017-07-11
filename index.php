@@ -10,6 +10,7 @@ use book\Book;
 use people\Reader;
 use hall\Hall;
 
+require_once 'vendor/autoload.php';
 require_once 'Autoloader.php';
 
 //require_once 'book/iBook.php';
@@ -23,8 +24,7 @@ require_once 'Autoloader.php';
 //
 //
 //$reader = new Reader('Иван', 25, true, 10, '101.ru');
-
-$library = new Library(
+Library::getInstance(
     [
         new Hall('Малый холл', 40, 3, 50, [
             $book = new Book('Приключения Тома Сойера', 'Марк Твен',
@@ -49,4 +49,7 @@ $library = new Library(
 
 //print_r($library);
 
-echo $library->getPeople()[1];
+
+d(Library::getInstance());
+
+echo Library::getInstance()->getPeople()[0];
